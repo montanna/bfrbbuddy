@@ -1,0 +1,84 @@
+html, body{
+	font-family: "Open Sans", Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4{
+	font-family: "Cabin Sketch";
+	font-size: 2em;
+
+}
+
+.green{
+	color: #113e24;
+}
+
+.container{
+	width: 100%;
+}
+
+section{
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
+.intro h1{
+	text-align:center;
+	padding: 10%;
+}
+
+.boxed-text{
+	font-size: 1.1em;
+	background: #e5e2dce5;
+	padding: 40px;
+	max-width: 800px;
+}
+
+.boxed-text span:nth-child(1){
+	color: #113e24;
+    float: left;
+    font-family: "Cabin Sketch";
+    font-size: 72px;
+    line-height: 40px;
+    padding-top: 8px;
+    padding-right: 3px;
+}
+
+.intro-text{
+	background-image:url("../img/preston1.jpg");
+}
+
+.page-three{
+	background-image:url("../img/molly.jpg");
+}
+
+.page-two{
+	background-image:url("../img/uclan.jpg");
+}
+
+.page-four{
+	background-image:url("../img/preston2.jpg");
+}
+
+.page-five{
+	background-image:url("../img/marys1.jpg");
+}
+
+@media screen and (min-width: 1024px){
+	h1{
+		font-size: 8vw;
+	}
+}
+
+@media screen and (max-width: 767px){
+	section{
+		min-height: 150vh;
+	}
+}

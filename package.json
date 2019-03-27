@@ -1,0 +1,12 @@
+{
+  "name": "BFRBBuddy",
+  "version": "1.0.0",
+  "description": "A web app to help people manage BFRBs like trichotillomania.",
+  "author": "montanna",
+  "dependencies": {
+    "express": "*"
+  },
+  "scripts": {
+  	"start": "node index.js"
+  }
+}
