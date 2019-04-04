@@ -42,6 +42,9 @@ async function tfApp() {
     classifier.addExample(activation, classId);
   };
 
+  //grab audio file from the dom
+  const alertSound = document.getElementById("alertSound");
+
   // When clicking a button, add an example for that class.
   document.getElementById('class-a').addEventListener('click', () => addExample(0));
   document.getElementById('class-b').addEventListener('click', () => addExample(1));
@@ -59,6 +62,13 @@ async function tfApp() {
         prediction: ${classes[result.classIndex]}\n
         probability: ${result.confidences[result.classIndex]}
       `;
+
+      if(${classes[result.classIndex]} == 'pulling1' && ${classes[result.classIndex]} == 1){
+        alertSound.play();
+      }
+
+
+
     }
 
     await tf.nextFrame();

@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/@tensorflow/tfjs"></script>
     <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
     <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
-    
+
   </head>
   <body>
     <div id="console"></div>
@@ -17,7 +17,11 @@
     <button id="class-a">Click to take images when you're in a pulling position.</button>
     <button id="class-b">Click to take images when you're in another pulling position</button>
     <button id="class-c">Click to take images when you're <em>not</em> pulling - this is your safe position.</button>
-    <!-- Load index.js after the content of the page -->
+    <audio id="alertSound">
+      <source src="alert.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag. Try downloading a newer one?
+    </audio>
+    <!-- Load tfApp.js after the content of the page -->
     <script src="tfApp.js"></script>
   </body>
 </html>
