@@ -63,7 +63,7 @@ async function tfApp() {
         probability: ${result.confidences[result.classIndex]}
       `;
 
-      if(classes[result.classIndex] == 'pulling1' && classes[result.classIndex] == 1){
+      if(result.classIndex == 0 && result.confidences[result.classIndex] == 1){
         alertSound.play();
       }
 
