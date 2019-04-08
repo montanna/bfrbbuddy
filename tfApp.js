@@ -66,9 +66,6 @@ async function tfApp() {
       if(result.classIndex == 0 && result.confidences[result.classIndex] == 1){
         alertSound.play();
       }
-
-
-
     }
 
     await tf.nextFrame();

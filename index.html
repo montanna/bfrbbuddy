@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>Teachable Machine Codelab</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <!-- Meta info -->
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BFRB Buddy | Machine learning for mental health</title>
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- Load the latest version of TensorFlow.js -->
     <script src="https://unpkg.com/@tensorflow/tfjs"></script>
     <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
@@ -10,13 +33,41 @@
 
   </head>
   <body>
-    <div id="console"></div>
-    <!-- Add an image that we will use to test -->
-    <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
-    <!-- Add buttons to add training images to the thing -->
-    <button id="class-a">Click to take images when you're in a pulling position.</button>
-    <button id="class-b">Click to take images when you're in another pulling position</button>
-    <button id="class-c">Click to take images when you're <em>not</em> pulling - this is your safe position.</button>
+    <div id="nav">
+      <img src="img/logo.png" id="logo">
+      <h1>BFRB<b>Buddy</b> | </h1>
+      <em>A self-help app for people with trichotillomania</em>
+    </div>
+    <div id="content">
+      <div id="console"></div>
+      <div class="grid">
+        <div class="intro-row">
+          <h1>Use machine learning to monitor your pulling when you're online</h1>
+        </div>
+        <div class="col col1">
+          <!-- Add an image that we will use to test -->
+          <video autoplay playsinline muted id="webcam" width="224" height="224">
+            Loading...
+          </video>
+          <p>We’ll never save or share your photos.<p>
+          <p>We use Google Cloud services to recognize patterns in sets of images. <a href="https://policies.google.com/privacy" target="_blank">Click here</a> to view their Privacy Policy.</p>
+        </div>
+        <div class="col col2">
+          <h2>Step 1 | <b>Teach BFRB Buddy what it looks like when you pull.</b></h2>
+          <p>
+            First, you’ll need to let us use your webcam. Click <b>Allow access</b> when your browser prompts you.
+            <br/>Next, place your arm in the position where it normally would be while you’re pulling. (You don’t have to touch your hair.)
+          </p>
+          <p>
+            When you’re ready, click <b>Save Pull Position</b> to take a picture. We need about 20 pictures to be accurate, so just keep clicking.
+          </p>
+          <!-- Add buttons to add training images to the thing -->
+          <button id="class-a">Save Pull Position</button>
+          <button id="class-b">Click to take images when you're in another pulling position</button>
+          <button id="class-c">Click to take images when you're <em>not</em> pulling - this is your safe position.</button>
+        </div>
+      </div>
+    </div>
     <audio id="alertSound">
       <source src="alert.mp3" type="audio/mpeg">
         Your browser does not support the audio tag. Try downloading a newer one?

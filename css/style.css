@@ -1,84 +1,112 @@
+*{
+	box-sizing: border-box;
+}
+
 html, body{
-	font-family: "Open Sans", Verdana, sans-serif;
+	font-family: "Montserrat", "Century Gothic", Verdana, sans-serif;
 	margin: 0;
 	padding: 0;
-}
-
-h1, h2, h3, h4{
-	font-family: "Cabin Sketch";
-	font-size: 2em;
-
-}
-
-.green{
-	color: #113e24;
-}
-
-.container{
-	width: 100%;
-}
-
-section{
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-size: cover;
-	background-position: center center;
+	background-color: #A2E2E1;
+	background-image: linear-gradient(60deg, #A2E2E1, #E9FACF); /*light blue -> pale yellow*/
+	background-size:cover;
 	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: #222;
 }
 
-.intro h1{
+a{
+	font-weight: 600;
+	text-decoration: none;
+	color: #222;
+}
+
+a:hover, a:focus{
+	text-decoration: underline;
+}
+
+p{
+	font-family: "Open Sans", "Calibri", Arial, sans-serif;
+}
+
+h1 b, h2 b{
+	font-weight: 400;
+}
+
+h1, h2, h3{
+	font-weight: 200;
+}
+
+h1{
+	font-size: 2em;
+}
+
+h2{
+	font-size: 1.5em;
+}
+
+.grid{
+	display: grid;
+	grid-template-columns: [left-gutter] 1fr [column1] 3fr [column2] 3fr [right-gutter] 1fr;
+	grid-template-rows: [header] 1fr [intro] 2fr [main] auto [footer] 2fr;
+}
+
+.col{
+	grid-row: main / footer;
+	padding: 2em;
+}
+
+#nav{
+	grid-row: header / main;
+	grid-column: left-gutter / right-gutter;
+	padding: 1em;
+	background-color:#9764BE;
+	color:#ffe;
+}
+
+#nav h1{
+	display: inline-block;
+}
+
+#nav img{
+	max-height: 2em;
+	margin-left: 1em; margin-right: 1em;
+}
+
+
+.intro-row{
+	grid-row: intro / main;
+	grid-column: column1 / right-gutter;
+	padding: 0 2em 2em 2em;
+}
+
+.col1{
+	grid-column: column1 / column2;
 	text-align:center;
-	padding: 10%;
 }
 
-.boxed-text{
-	font-size: 1.1em;
-	background: #e5e2dce5;
-	padding: 40px;
-	max-width: 800px;
+.col1 > video{
+	width: 100%;
+	height:auto;
 }
 
-.boxed-text span:nth-child(1){
-	color: #113e24;
-    float: left;
-    font-family: "Cabin Sketch";
-    font-size: 72px;
-    line-height: 40px;
-    padding-top: 8px;
-    padding-right: 3px;
+.col2{
+	grid-column: column2 / right-gutter;
 }
 
-.intro-text{
-	background-image:url("../img/preston1.jpg");
+button{
+	font-family: "Montserrat", "Century Gothic", Verdana, sans-serif;
+	font-weight: 600;
+	padding: 1em;
+	width: 100%;
+	margin-bottom: 1em;
+	color: #ffe;
+	border: none;
+	border-radius: 2em;
+	background-color: #4FC087;
+	background-image: linear-gradient(60deg, #4FC087, #4E86A3);
 }
 
-.page-three{
-	background-image:url("../img/molly.jpg");
-}
 
-.page-two{
-	background-image:url("../img/uclan.jpg");
-}
-
-.page-four{
-	background-image:url("../img/preston2.jpg");
-}
-
-.page-five{
-	background-image:url("../img/marys1.jpg");
-}
-
-@media screen and (min-width: 1024px){
-	h1{
-		font-size: 8vw;
-	}
-}
-
-@media screen and (max-width: 767px){
-	section{
-		min-height: 150vh;
-	}
+#console{
+	display: none;
 }
