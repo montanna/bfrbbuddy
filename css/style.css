@@ -12,6 +12,7 @@ html, body{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	color: #222;
+	overflow-x:hidden;
 }
 
 a{
@@ -46,13 +47,10 @@ h2{
 
 .grid{
 	display: grid;
+	width: 100%;
+	height: auto;
 	grid-template-columns: [left-gutter] 1fr [column1] 3fr [column2] 3fr [right-gutter] 1fr;
-	grid-template-rows: [header] 1fr [intro] 2fr [main] auto [footer] 2fr;
-}
-
-.col{
-	grid-row: main / footer;
-	padding: 2em;
+	grid-template-rows: [header] 100px [intro] auto [main] auto [footer] auto;
 }
 
 #nav{
@@ -72,11 +70,24 @@ h2{
 	margin-left: 1em; margin-right: 1em;
 }
 
+#nav #banner {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    height: 200px;
+    max-height: unset;
+	}
 
 .intro-row{
-	grid-row: intro / main;
+	grid-row: header / main;
 	grid-column: column1 / right-gutter;
-	padding: 0 2em 2em 2em;
+	padding: 2em;
+}
+
+.col{
+	grid-row: main / footer;
+	padding: 2em;
 }
 
 .col1{
@@ -91,7 +102,36 @@ h2{
 
 .col2{
 	grid-column: column2 / right-gutter;
+	position: relative;
 }
+
+.drawer{
+	transition: all 0.3s ease;
+	position: absolute;
+	top: 0;
+	margin-top: 2em;
+	width: calc(100% - 4em);
+}
+
+.drawer.open{
+	margin-left: 0;
+	opacity: 1;
+	pointer-events:auto;
+}
+
+.drawer.closed{
+	margin-left: 100%;
+	opacity:0;
+	pointer-events: none;
+	/*transition-delay: 0.2s;*/
+}
+
+.drawer:first-child{
+	position: relative;
+	width: 100%;
+	margin-top: 0;
+}
+
 
 button{
 	font-family: "Montserrat", "Century Gothic", Verdana, sans-serif;
@@ -102,11 +142,84 @@ button{
 	color: #ffe;
 	border: none;
 	border-radius: 2em;
-	background-color: #4FC087;
+	background-color: #4E86A3;
 	background-image: linear-gradient(60deg, #4FC087, #4E86A3);
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button.next{
+	background-color: #4FC087;
+	background-image: none;
+}
+
+button.step2{
+	width: calc(50% - 0.5em); float: right;
+}
+
+button.step2:last-child{
+	margin-right: 1em;
+}
+
+button.back{
+	background-color: #4E86A3;
+	background-image: none;
+}
+
+button:hover, button:focus{
+	cursor: pointer;
+	background-image: none;
+	background-color: #4E86A3;
+	box-shadow: 3px 3px 0px #131fa9aa;
+}
+
+button span{
+	flex-basis: 2;
+}
+
+button:hover span, button:focus span{
+		text-decoration: underline;
+		pointer-events: none;
 }
 
 
+button:active{
+	background-color: #3d64b2;
+	box-shadow:0px 0px 0px 3px #131fa9aa inset;
+
+}
+
+button > i.material-icons, button:hover > i.material-icons{
+	font-size: 1.3em;
+	margin-left: 1em;
+	margin-right: 1em;
+	text-decoration: none!important;
+}
+
 #console{
 	display: none;
+}
+
+@media screen and (max-width:768px){
+	#nav em{
+		display: block;
+	}
+	.grid{
+		grid-template-columns: [left-gutter] 1fr [column1] 20fr [right-gutter] 1fr;
+		grid-template-rows: [header] 100px [intro] auto [main1] auto [main2] auto [footer] auto;
+	}
+	.intro-row{
+		grid-row: intro / main1;
+	}
+	.col1{
+		grid-column: column1 / right-gutter;
+		grid-row: main1 / main2;
+	}
+	.col2{
+		grid-column: column1 / right-gutter;
+		grid-row: main2 / footer;
+	}
+
 }

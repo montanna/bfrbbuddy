@@ -23,7 +23,7 @@
     <title>BFRB Buddy | Machine learning for mental health</title>
 
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600|Open+Sans|Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Load the latest version of TensorFlow.js -->
@@ -34,9 +34,10 @@
   </head>
   <body>
     <div id="nav">
-      <img src="img/logo.png" id="logo">
+      <img src="img/logo.png" id="logo" alt="BFRB Bear Icon">
       <h1>BFRB<b>Buddy</b> | </h1>
       <em>A self-help app for people with trichotillomania</em>
+      <a href="mailto: bfrb.buddy@gmail.com"><img src="img/banner.png" id="banner" alt="alpha - this site is still in development. if you experience any issues, please contact BFRB.Buddy@gmail.com." title="alpha - this site is still in development. if you experience any issues, please contact BFRB.Buddy@gmail.com."></a>
     </div>
     <div id="content">
       <div id="console"></div>
@@ -50,21 +51,49 @@
             Loading...
           </video>
           <p>We’ll never save or share your photos.<p>
-          <p>We use Google Cloud services to recognize patterns in sets of images. <a href="https://policies.google.com/privacy" target="_blank">Click here</a> to view their Privacy Policy.</p>
+          <p>However, we do use Google Cloud services to recognize patterns in sets of images. <a href="https://policies.google.com/privacy" target="_blank">Click here</a> to view their Privacy Policy.</p>
         </div>
         <div class="col col2">
-          <h2>Step 1 | <b>Teach BFRB Buddy what it looks like when you pull.</b></h2>
-          <p>
-            First, you’ll need to let us use your webcam. Click <b>Allow access</b> when your browser prompts you.
-            <br/>Next, place your arm in the position where it normally would be while you’re pulling. (You don’t have to touch your hair.)
-          </p>
-          <p>
-            When you’re ready, click <b>Save Pull Position</b> to take a picture. We need about 20 pictures to be accurate, so just keep clicking.
-          </p>
-          <!-- Add buttons to add training images to the thing -->
-          <button id="class-a">Save Pull Position</button>
-          <button id="class-b">Click to take images when you're in another pulling position</button>
-          <button id="class-c">Click to take images when you're <em>not</em> pulling - this is your safe position.</button>
+          <div class="drawer step1 open">
+            <h2>Step 1 | <b>Teach BFRB Buddy what it looks like when you pull.</b></h2>
+            <p>
+              First, you’ll need to let us use your webcam. Click <b>Allow access</b> when your browser prompts you.
+              <br/>Next, place your arm in the position where it normally would be while you’re pulling. (You don’t have to touch your hair.)
+            </p>
+            <p>
+              When you’re ready, click <b>Save Pull Position</b> to take a picture. We need about 20 pictures to be accurate, so just keep clicking.
+            </p>
+            <!-- Add buttons to add training images to the thing -->
+            <button id="class-a"><span>Save Pull Position</span></button>
+            <p id="photoCount-a">Photos: 0</p>
+            <button class="next step1"> <span>Next</span> <i class="material-icons"> arrow_forward </i></button>
+        </div>
+        <div class="drawer step2 closed">
+            <h2>Step 2 | <b>Show BFRB Buddy what it looks like when you <em>aren't</em> pulling.</b></h2>
+            <p>
+              Next, sit comfortably in the position you'll be in when you aren't pulling.
+            </p>
+            <p>
+              When you’re ready, click <b>Save Safe Position</b> to take a picture. We need about 20 pictures to be accurate, so just keep clicking.
+            </p>
+            <!-- Add buttons to add training images to the thing -->
+            <button id="class-b"><span>Save Safe Position</span></button>
+            <p id="photoCount-b">Photos: 0</p>
+            <button class="next step2"> <span>Next</span> <i class="material-icons"> arrow_forward </i></button>
+            <button class="back step2"> <i class="material-icons"> arrow_back </i> <span>Back</span> </button>
+        </div>
+        <div class="drawer step3 closed">
+            <h2>Done!</h2>
+            <p>
+              You can open a new window to browse the web normally, or open up a different program on your computer. BFRB Buddy will play a sound to alert you if it notices that you're pulling. <b>Be sure to leave this tab active, though, or you won't hear the alerts!</b>
+            </p>
+            <p>
+              If BFRB Buddy is playing sounds when you aren't pulling, or not recognizing it when you are, you can use the Back button below to return and add more photos. The more photos you take, the more accurate the detection will be.
+            </p>
+
+            <button class="back step3"> <i class="material-icons"> arrow_back </i> <span>Back</span> </button>
+        </div>
+
         </div>
       </div>
     </div>
@@ -72,7 +101,9 @@
       <source src="alert.mp3" type="audio/mpeg">
         Your browser does not support the audio tag. Try downloading a newer one?
     </audio>
+    <script src="js/page.js"></script>
     <!-- Load tfApp.js after the content of the page -->
     <script src="tfApp.js"></script>
+
   </body>
 </html>

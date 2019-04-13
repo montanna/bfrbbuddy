@@ -3,6 +3,8 @@ const webcamElement = document.getElementById('webcam');
 
 let net;
 
+let photoCount = [0, 0];
+
 async function setupWebcam() {
   return new Promise((resolve, reject) => {
     const navigatorAny = navigator;
@@ -40,6 +42,14 @@ async function tfApp() {
 
     // Pass the intermediate activation to the classifier.
     classifier.addExample(activation, classId);
+    photoCount[classId]++;
+    if(classId == 0){
+      document.getElementById("photoCount-a").innerText = ("Photos: " + photoCount[0]);
+    }
+    else{
+      document.getElementById("photoCount-b").innerText = ("Photos: " + photoCount[1]);
+
+    }
   };
 
   //grab audio file from the dom
@@ -48,7 +58,6 @@ async function tfApp() {
   // When clicking a button, add an example for that class.
   document.getElementById('class-a').addEventListener('click', () => addExample(0));
   document.getElementById('class-b').addEventListener('click', () => addExample(1));
-  document.getElementById('class-c').addEventListener('click', () => addExample(2));
 
   while (true) {
     if (classifier.getNumClasses() > 0) {
@@ -57,13 +66,13 @@ async function tfApp() {
       // Get the most likely class and confidences from the classifier module.
       const result = await classifier.predictClass(activation);
 
-      const classes = ['pulling1', 'pulling2', 'safe'];
+      const classes = ['pulling', 'safe'];
       document.getElementById('console').innerText = `
         prediction: ${classes[result.classIndex]}\n
         probability: ${result.confidences[result.classIndex]}
       `;
 
-      if(result.classIndex == 0 && result.confidences[result.classIndex] == 1){
+      if(result.classIndex == 0 && result.confidences[result.classIndex] == 1 && alarmOn){
         alertSound.play();
       }
     }
