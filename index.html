@@ -46,7 +46,7 @@
           <h1>Use machine learning to monitor your pulling when you're online</h1>
         </div>
         <div class="col col1">
-          <!-- Add an image that we will use to test -->
+          <!-- Add an image that we will use to test-->
           <video autoplay playsinline muted id="webcam" width="224" height="224">
             Loading...
           </video>
@@ -56,29 +56,32 @@
         <div class="col col2">
           <div class="drawer step1 open">
             <h2>Step 1 | <b>Teach BFRB Buddy what it looks like when you pull.</b></h2>
+            <img class="example" src="img/pull.jpg"/>
             <p>
               First, you’ll need to let us use your webcam. Click <b>Allow access</b> when your browser prompts you.
-              <br/>Next, place your arm in the position where it normally would be while you’re pulling. (You don’t have to touch your hair.)
+              <p>
+            <p>Next, place your arm in the position where it normally would be while you’re pulling. (You don’t have to touch your hair.)
             </p>
             <p>
-              When you’re ready, click <b>Save Pull Position</b> to take a picture. We need about 20 pictures to be accurate, so just keep clicking.
+              When you’re ready, click and hold <b>Save Pull Position</b> to take a series of pictures. We need about 20 pictures to be accurate.
             </p>
             <!-- Add buttons to add training images to the thing -->
+            <p id="photoCount-a">Photos: 0 / 20</p>
             <button id="class-a"><span>Save Pull Position</span></button>
-            <p id="photoCount-a">Photos: 0</p>
             <button class="next step1"> <span>Next</span> <i class="material-icons"> arrow_forward </i></button>
         </div>
         <div class="drawer step2 closed">
             <h2>Step 2 | <b>Show BFRB Buddy what it looks like when you <em>aren't</em> pulling.</b></h2>
+            <img class="example" src="img/safe.jpg"/>
             <p>
-              Next, sit comfortably in the position you'll be in when you aren't pulling.
+              Next, sit comfortably in the position you'll be in when you <em>aren't</em> pulling.
             </p>
             <p>
-              When you’re ready, click <b>Save Safe Position</b> to take a picture. We need about 20 pictures to be accurate, so just keep clicking.
+              When you’re ready, click and hold <b>Save Safe Position</b> to take a series of pictures. We need about 20 pictures to be accurate.
             </p>
             <!-- Add buttons to add training images to the thing -->
+            <p id="photoCount-b">Photos: 0 / 20</p>
             <button id="class-b"><span>Save Safe Position</span></button>
-            <p id="photoCount-b">Photos: 0</p>
             <button class="next step2"> <span>Next</span> <i class="material-icons"> arrow_forward </i></button>
             <button class="back step2"> <i class="material-icons"> arrow_back </i> <span>Back</span> </button>
         </div>
@@ -96,6 +99,15 @@
 
         </div>
       </div>
+    </div>
+    <div class="footer">
+      <p>Made with ♥ by Montanna</p>
+      <p><a href="mailto:bfrb.buddy@gmail.com">BFRB.Buddy@gmail.com</a></p>
+    </div>
+    <div class="preloader">
+      <div class="spinner"></div>
+      <h3><b>Loading...</b></h3>
+      <p>BFRB Buddy needs your webcam to work. <br> Please click <b>Allow access</b> if your browser asks.</p>
     </div>
     <audio id="alertSound">
       <source src="alert.mp3" type="audio/mpeg">
